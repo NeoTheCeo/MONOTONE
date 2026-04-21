@@ -34,6 +34,6 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose the nginx port
-EXPOSE 4173
+EXPOSE 10000
 
 CMD ["nginx", "-g", "daemon off;"]
