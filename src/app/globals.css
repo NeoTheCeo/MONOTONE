@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0A0A0A;
+  --surface: #141414;
+  --surface-hover: #1F1F1F;
+  --primary: #D4AF37;
+  --primary-hover: #E5C158;
+  --accent: #8B4513;
+  --text: #FAFAFA;
+  --text-muted: #A0A0A0;
+  --border: #2A2A2A;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-background px-4 py-2 rounded font-semibold hover:bg-primary-hover transition-colors;
+  }
+  .btn-secondary {
+    @apply bg-surface border border-border px-4 py-2 rounded hover:bg-surface-hover transition-colors;
+  }
+  .card {
+    @apply bg-surface rounded-lg p-4 border border-border hover:border-primary/50 transition-colors;
+  }
+  .input {
+    @apply bg-background border border-border rounded px-3 py-2 text-text focus:border-primary focus:outline-none;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}

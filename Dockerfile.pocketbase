@@ -1,0 +1,8 @@
+# PocketBase for African Archive Radio
+FROM pocketbase/pocketbase:latest
+
+COPY pb_data /pb_data
+
+EXPOSE 8090
+
+CMD ["serve", "--http=0.0.0.0:8090", "--dir=/pb_data"]
