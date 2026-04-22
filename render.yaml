@@ -1,0 +1,36 @@
+# African Archive Radio - Render Blueprint
+services:
+  # Next.js Frontend
+  - type: web
+    name: african-archive-radio
+    region: oregon
+    repo: https://github.com/NeoTheCeo/MONOTONE.git
+    branch: african-archive-radio
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: "18"
+      - key: PORT
+        value: "3000"
+
+  # PocketBase Backend
+  - type: web
+    name: african-archive-radio-db
+    region: oregon
+    repo: https://github.com/NeoTheCeo/MONOTONE.git
+    branch: african-archive-radio
+    plan: starter
+    buildCommand: |
+      curl -L -o pb https://github.com/pocketbase/pocketbase/releases/latest/download/pocketbase_linux_amd64.zip
+      unzip pb
+      chmod +x pocketbase
+    startCommand: ./pocketbase serve --http=0.0.0.0:$PORT --dir=/data
+    healthCheckPath: /
+    envVars:
+      - key: PORT
+        value: "8090"
+    persistentStorage:
+      mountPath: /data
+      sizeGB: 1

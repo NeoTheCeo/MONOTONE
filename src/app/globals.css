@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --surface: #1a1a1a;
+  --surface-hover: #252525;
+  --primary: #e11d48;
+  --primary-hover: #be123c;
+  --accent: #f59e0b;
+  --muted: #a3a3a3;
+  --muted-foreground: #737373;
+  --border: #262626;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-full bg-primary text-white font-medium hover:bg-primary-hover transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-full bg-surface text-foreground border border-border hover:bg-surface-hover transition-colors;
+  }
+
+  .card {
+    @apply p-4 rounded-xl bg-surface border border-border;
+  }
+
+  .font-display {
+    font-family: "Playfair Display", serif;
+  }
+}
+
+@layer utilities {
+  .bg-background { background-color: var(--background); }
+  .bg-foreground { background-color: var(--foreground); }
+  .bg-surface { background-color: var(--surface); }
+  .bg-surface-hover { background-color: var(--surface-hover); }
+  .bg-primary { background-color: var(--primary); }
+  .bg-primary-hover { background-color: var(--primary-hover); }
+  .bg-accent { background-color: var(--accent); }
+  
+  .text-foreground { color: var(--foreground); }
+  .text-text-muted { color: var(--muted-foreground); }
+  .text-primary { color: var(--primary); }
+  
+  .border-surface { border-color: var(--border); }
+}
