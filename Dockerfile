@@ -36,4 +36,7 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Expose the nginx port
 EXPOSE 10000
 
+# Set PORT environment variable for platform health checks
+ENV PORT=10000
+
 CMD ["nginx", "-g", "daemon off;"]
